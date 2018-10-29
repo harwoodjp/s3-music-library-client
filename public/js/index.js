@@ -7,10 +7,6 @@ import { render } from "react-dom"
 
 import App from "./components/App"
 
-fetch("http://localhost:1993/filter?artist=Felt")
-  .then(res => res.json())
-  .then(json => console.log(json))
- 
 /*
   Init: /artists
   Artist selection: /filter?artist=
