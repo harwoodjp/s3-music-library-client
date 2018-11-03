@@ -5,7 +5,7 @@ import React from "react"
 import { render } from "react-dom"
 
 
-import App from "./components/App"
+import Router from "./components/Router"
 
 /*
   Init: /artists
@@ -17,7 +17,7 @@ import App from "./components/App"
 
 
 render(
-  <App />,
+  <Router/>,
   document.getElementById("app")
 )
 

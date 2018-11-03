@@ -1,16 +1,10 @@
-import React from "react"
+import React, { Component } from "react"
 import styled from "styled-components"
 
-const Wrapper = styled.div`
-  padding: 1em;
-  border: 1px solid black;
-  &:hover {
-    background: black;
-    color: white;
-  }
+const Wrapper = styled.option`
 `
 
-class Cell extends React.Component {
+class Cell extends Component {
   constructor() {
     super()
   }

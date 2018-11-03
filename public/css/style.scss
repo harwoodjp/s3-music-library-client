@@ -4,4 +4,5 @@
 
 .container {
   @include flex(column);
+  padding: 1em;
 }
