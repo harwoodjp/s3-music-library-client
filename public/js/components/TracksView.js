@@ -4,6 +4,11 @@ import styled from "styled-components"
 const Wrapper = styled.div`
   max-height: 90vh;
   overflow-y: scroll;
+  table {
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  }
 `
 class TracksView extends Component {
   constructor() {
