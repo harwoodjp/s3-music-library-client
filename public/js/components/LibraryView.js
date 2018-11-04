@@ -16,16 +16,18 @@ class LibraryView extends Component {
   componentDidMount() {
   }
   render() {
-    return <select size="30">
-      {this.props.data.map((artist, i) => 
-        <option 
-          key={i}
-          onClick={() => console.log(artist)}
-        >
+    return (
+      <Wrapper size="30">
+        {this.props.data.map((artist, i) => 
+          <option 
+            key={i}
+            onClick={() => console.log(artist)}
+          >
           {artist.artist}
-        </option>
-      )}
-    </select>
+          </option>
+        )}
+      </Wrapper>
+    )
   }
 }
 

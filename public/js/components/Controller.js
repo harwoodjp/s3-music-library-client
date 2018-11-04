@@ -1,19 +1,18 @@
-import React from "react"
+import React, { Component } from "react"
 import styled from "styled-components"
 
-import Cell from "./Cell"
 import LibraryView from "./LibraryView"
 import TracksView from "./TracksView"
 
-class Controller extends React.Component {
+class Controller extends Component {
   constructor() {
     super()
     this.state = {
-      view: "",
+      view: null,
       data: {
-        artists: "",
-        albums: "",
-        tracks: ""
+        artists: null,
+        albums: null,
+        tracks: null
       }
     }
   }
@@ -35,11 +34,11 @@ class Controller extends React.Component {
       .then(([res1, res2, res3]) => 
             Promise.all([res1.json(), res2.json(), res3.json()]))
       .then(([json1, json2, json3]) => {
-        let state = this.state
-        state.data.artists = json1
-        state.data.albums = json2
-        state.data.tracks = json3
-        this.setState(state)
+        let s = this.state
+        s.data.artists = json1
+        s.data.albums = json2
+        s.data.tracks = json3
+        this.setState(s)
         this.setView()
       })
   }

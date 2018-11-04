@@ -5,35 +5,33 @@ const Wrapper = styled.div`
   max-height: 90vh;
   overflow-y: scroll;
 `
-const TrackTable = styled.table``
-const TrackHeading = styled.th``
-const TrackRow = styled.tr``
-
 class TracksView extends Component {
   constructor() {
     super()
   }
   render() {
-    return <Wrapper>
-        <TrackTable>
+    return (
+      <Wrapper>
+        <table>
           <thead>
-            <TrackRow>
-              <TrackHeading>Artist</TrackHeading>
-              <TrackHeading>Album</TrackHeading>
-              <TrackHeading>Track</TrackHeading>
-            </TrackRow>
+            <tr>
+              <th>Artist</th>
+              <th>Album</th>
+              <th>Track</th>
+            </tr>
           </thead>
           <tbody>
             {this.props.data.map((track, i) => (
-              <TrackRow key={i} >
+              <tr key={i}>
                 <td>{track.artist}</td>
                 <td>{track.album}</td>
                 <td>{track.track}</td>
-              </TrackRow>
+              </tr>
             ))}
           </tbody>
-        </TrackTable>
-    </Wrapper>
+        </table>
+      </Wrapper>
+    )
   }
 }
 
