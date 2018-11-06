@@ -8,7 +8,7 @@ const Wrapper = styled.select`
   overflow-y: scroll;
 `
 
-class LibraryView extends Component {
+class ArtistSelect extends Component {
   constructor() {
     super()
     this.state = {}
@@ -31,4 +31,4 @@ class LibraryView extends Component {
   }
 }
 
-export default LibraryView
+export default ArtistSelect
