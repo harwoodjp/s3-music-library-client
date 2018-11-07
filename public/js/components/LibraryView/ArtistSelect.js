@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const Wrapper = styled.select`
   padding: 1em;
-  max-width: 25em;
+  width: 25%;
   height: 90vh;
   overflow-y: scroll;
 `
@@ -11,17 +11,27 @@ const Wrapper = styled.select`
 class ArtistSelect extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      data: []
+    }
+    this.handleChange = this.handleChange.bind(this) 
   }
   componentDidMount() {
+    this.setState({data: this.props.data})
   }
+  
+  handleChange(e) {
+    const clickedArtist = e.target.value
+    const clickedArtistData = this.state.data.filter(data => data.artist === e.target.value)
+    this.props.setAlbumSelect(clickedArtistData)
+  }
+
   render() {
     return (
-      <Wrapper size="30">
-        {this.props.data.map((artist, i) => 
+      <Wrapper size="30" onChange={e => this.handleChange(e)}>
+        {this.state.data.map((artist, i) => 
           <option 
             key={i}
-            onClick={() => console.log(artist)}
           >
           {artist.artist}
           </option>
