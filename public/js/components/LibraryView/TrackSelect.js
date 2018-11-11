@@ -18,10 +18,13 @@ class TrackSelect extends Component {
   }
   componentDidMount() {
     console.log("TrackSelect#componentDidMount")
-    this.setState({data: this.props.data[0].tracks})
+    this.setState({data: this.props.data.tracks})
   }
   componentWillReceiveProps(nextProps) {
     console.log("TrackSelect#componentWillReceiveProps")
+    this.setState({
+      data: nextProps.data.tracks
+    })
   }
   render() {
     return (

@@ -23,7 +23,8 @@ class ArtistSelect extends Component {
   handleChange(e) {
     const clickedArtist = e.target.value
     const clickedArtistData = this.state.data.filter(data => data.artist === e.target.value)
-    this.props.setAlbumSelect(clickedArtistData)
+    console.log(clickedArtistData)
+    this.props.setAlbumSelect(clickedArtistData[0])
   }
 
   render() {

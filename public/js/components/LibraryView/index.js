@@ -27,6 +27,7 @@ class LibraryView extends Component {
         })
       },
       setAlbumSelect: artistData => {
+        console.log(artistData)
         this.setState({
           albumSelect: <AlbumSelect
             data={artistData}

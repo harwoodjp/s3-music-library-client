@@ -19,23 +19,29 @@ class AlbumSelect extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
   componentDidMount() {
+    console.log("AlbumSelect#componentDidMount")
     this.setState({
-      data: this.props.data[0].albums
+      data: this.props.data.albums
+    }, () => {
+      this.props.setTrackSelect(this.props.data.albums[0])
+    })
+  }
+    componentWillReceiveProps(nextProps) {
+    this.setState({
+      data: nextProps.data.albums
+    }, () => {
+      this.props.setTrackSelect(this.props.data.albums[0])
     })
   }
   handleChange(e) {
+    console.log("AlbumSelect#handleChange")
     const clickedAlbum = e.target.value
     const clickedAlbumData = this.state.data.filter(data => data.album === e.target.value)
-    console.log(clickedAlbumData)
-    this.props.setTrackSelect(clickedAlbumData)
-  }
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      data: nextProps.data[0].albums
-    })
+    this.props.setTrackSelect(clickedAlbumData[0])
   }
   render() {
     return (
+      this.state.data ? 
       <Wrapper size="30" onChange={e => this.handleChange(e)}>
         {this.state.data.map((album, i) => 
           <option 
@@ -45,6 +51,7 @@ class AlbumSelect extends Component {
           </option>
         )}
       </Wrapper>
+      : null
     )
   }
 }
